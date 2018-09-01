@@ -3,7 +3,10 @@ package com.codecool.app;
 import com.codecool.app.parsers.*;
 
 public class ESProvider{
-    public ESProvider(FactParser FactParser, RuleParser RuleParser){
+    private RuleRepository ruleRepository;
+    
+    public ESProvider(FactParser factParser, RuleParser ruleParser){
+        this.ruleRepository = ruleParser.getRuleRepository();
 
     }
 }
