@@ -25,7 +25,6 @@ class XMLParser{
         } catch(Exception e) {
             e.printStackTrace();
         }
-        // System.out.printf("Node: %s", this.document.getDocumentElement().getNodeName());
         return nodeList;
     }
 }

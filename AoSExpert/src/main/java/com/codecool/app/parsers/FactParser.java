@@ -20,7 +20,6 @@ public class FactParser extends XMLParser {
     }
 
     private void fillFactRepo(){
-        /** CHANGE THIS SHIT TO FACTS MATE :D */
         for(int i = 0; i < this.nodeList.getLength(); i++) {
             Node factNode = this.nodeList.item(i);
             System.out.printf("%s", factNode.getNodeName());
