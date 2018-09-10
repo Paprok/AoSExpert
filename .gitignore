@@ -27,7 +27,13 @@ hs_err_pid*
 /.vscode/*
 
 #IntelliJ files
+org.eclipse.jdt.core.prefs
+.idea
+/.idea
+target
 target/*
 /target/*
 /.settings/*
 .settings/*
+target/classes/com/codecool/app/dataBase/*
+/target/classes/com/codecool/app/dataBase/*
