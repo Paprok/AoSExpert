@@ -13,6 +13,8 @@ import org.w3c.dom.NodeList;
 // import org.w3c.dom.Document;
 
 class XMLParser{
+
+    /** CZY TO JEST POPRAWNIE I JAK TO OGARNĄĆ ŻEBY ZAPISYWAŁO DO POLA DOSTĘPNEGO W SUBCLASACH*/
     NodeList loadXMLFile(String xmlPath, String tag){
         NodeList nodeList = null;
         try {
