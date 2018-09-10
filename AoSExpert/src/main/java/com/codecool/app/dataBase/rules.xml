@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Rules>
     <Rule id="good">
-        <Question> Do you prefer to play as villian or hero? </Question>
+        <Question>Do you prefer to play as villian or hero?</Question>
         <Answer>
             <Selection value="true">
                 <SingleValue value="hero"/>
@@ -12,13 +12,24 @@
         </Answer>
     </Rule>
     <Rule id="aggro">
-        <Question> What type of army do you prefer elite or aggro? </Question>
+        <Question>What type of army do you prefer elite or aggro?</Question>
         <Answer>
             <Selection value="true">
                 <SingleValue value="aggro"/>
             </Selection>
             <Selection value="false">
                 <SingleValue value="elite"/>
+            </Selection>
+        </Answer>
+    </Rule>
+    <Rule id="monsters">
+        <Question>Do you want to have monsters in your army? (yes or no)</Question>
+        <Answer>
+            <Selection value="true">
+                <SingleValue value="yes"/>
+            </Selection>
+            <Selection value="false">
+                <SingleValue value="no"/>
             </Selection>
         </Answer>
     </Rule>

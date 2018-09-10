@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Facts>
+    <Fact id="SCE">
+        <Description value="Stormcast Eternals"/>
+        <Evals>
+            <Eval id="aggro">false</Eval>
+            <Eval id="good">true</Eval>
+            <Eval id="monsters">true</Eval>
+        </Evals>
+    </Fact>
+    <Fact id="Lizardmen">
+        <Description value="Lizardmen or Elves"/>
+        <Evals>
+            <Eval id="aggro">true</Eval>
+            <Eval id="good">true</Eval>
+            <Eval id="monsters">true</Eval>
+        </Evals>
+    </Fact>
+    <Fact id="Dwarves">
+        <Description value="Dwarves: Fyreslayers or Kharadron Overlords"/>
+        <Evals>
+            <Eval id="aggro">false</Eval>
+            <Eval id="good">true</Eval>
+            <Eval id="monsters">false</Eval>
+        </Evals>
+    </Fact>
+    <Fact id="Freepeople">
+        <Description value="Freepeople or Sylvaneth(If you don't consider Ents as monsters XD)"/>
+        <Evals>
+            <Eval id="aggro">true</Eval>
+            <Eval id="good">true</Eval>
+            <Eval id="monsters">false</Eval>
+        </Evals>
+    </Fact>
+    <Fact id="Chaos">
+        <Description value="Chaos Armies excluding Blades of Khorne"/>
+        <Evals>
+            <Eval id="aggro">false</Eval>
+            <Eval id="good">false</Eval>
+            <Eval id="monsters">true</Eval>
+        </Evals>
+    </Fact>
+    <Fact id="Skaven">
+        <Description value="Skavens, Undeads, Brayherds or Blades of Khorne"/>
+        <Evals>
+            <Eval id="aggro">true</Eval>
+            <Eval id="good">false</Eval>
+            <Eval id="monsters">true</Eval>
+        </Evals>
+    </Fact>
+    <Fact id="Fool">
+        <Description value="Why would you play bad guys without monsters? Don't be a fool!!!"/>
+        <Evals>
+            <Eval id="aggro">false</Eval>
+            <Eval id="good">false</Eval>
+            <Eval id="monsters">false</Eval>
+        </Evals>
+    </Fact>
+    <Fact id="Orcs">
+        <Description value="Ironjaws"/>
+        <Evals>
+            <Eval id="aggro">true</Eval>
+            <Eval id="good">true</Eval>
+            <Eval id="monsters">false</Eval>
+        </Evals>
+    </Fact>
+</Facts>
