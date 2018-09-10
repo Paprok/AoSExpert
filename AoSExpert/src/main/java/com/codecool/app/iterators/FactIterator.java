@@ -13,7 +13,7 @@ public class FactIterator implements Iterator<Fact> {
 
     public FactIterator(Map<String, Fact> facts) {
         this.index = 0;
-        this.facts = (ArrayList<Fact>) facts.values();
+        this.facts = new ArrayList<Fact> (facts.values());
     }
 
     @Override

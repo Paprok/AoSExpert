@@ -12,7 +12,7 @@ public class QuestionIterator implements Iterator<Question> {
 
     public QuestionIterator(Map<String, Question> rules) {
         this.index = 0;
-        this.questions = (ArrayList<Question>) rules.values();
+        this.questions = new ArrayList<Question>(rules.values());
     }
 
     @Override
