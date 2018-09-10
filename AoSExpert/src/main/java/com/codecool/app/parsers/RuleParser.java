@@ -11,7 +11,6 @@ import org.w3c.dom.NodeList;
 
 public class RuleParser extends XMLParser{
     private RulesRepo rulesRepo;
-    private Document document;
     private NodeList nodeList;
 
     // public static void main(String[] args) {
@@ -20,13 +19,9 @@ public class RuleParser extends XMLParser{
     // }
 
     public RuleParser(String xmlPath, String tag){
-        loadXMLFile(xmlPath, tag);
-    }
-
-    public RulesRepo getRulesRepo(){
+        this.nodeList = loadXMLFile(xmlPath, tag);
         this.rulesRepo = new RulesRepo();
         fillRulesRepo();
-        return rulesRepo;
     }
 
     /**Could be in XMLParser if RulesRepo and FactRepo would inherit from same class */
@@ -57,5 +52,9 @@ public class RuleParser extends XMLParser{
             Element singleValue = (Element) selection.getElementsByTagName("SingleValue").item(0);
             answer.addValue(new SingleValue(singleValue.getAttribute("value"), Boolean.getBoolean(selection.getAttribute("value"))));
         }  
+    }
+
+    public RulesRepo getRulesRepo(){
+        return this.rulesRepo;
     }
 }

@@ -12,21 +12,20 @@ import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 // import org.w3c.dom.Document;
 
-abstract class XMLParser{
-    private NodeList nodeList;
-
-    void loadXMLFile(String xmlPath, String tag){
+class XMLParser{
+    NodeList loadXMLFile(String xmlPath, String tag){
+        NodeList nodeList = null;
         try {
             File xmlFile = new File(xmlPath);
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document document = dBuilder.parse(xmlFile);
             document.normalize();
-            this.nodeList = document.getElementsByTagName(tag);
+            nodeList = document.getElementsByTagName(tag);
         } catch(Exception e) {
             e.printStackTrace();
         }
         // System.out.printf("Node: %s", this.document.getDocumentElement().getNodeName());
-        
+        return nodeList;
     }
 }

@@ -1,5 +1,6 @@
 package com.codecool.app.parsers;
 
+import com.codecool.app.facts.Fact;
 import com.codecool.app.facts.FactsRepo;
 import com.codecool.app.rules.Answer;
 import com.codecool.app.rules.Question;
@@ -13,7 +14,7 @@ public class FactParser extends XMLParser {
 
 
     public FactParser(String xmlPath, String tag) {
-        loadXMLFile(xmlPath, tag);
+        this.nodeList = loadXMLFile(xmlPath, tag);
         this.factsRepo = new FactsRepo();
         fillFactRepo();
     }
@@ -21,17 +22,32 @@ public class FactParser extends XMLParser {
     private void fillFactRepo(){
         /** CHANGE THIS SHIT TO FACTS MATE :D */
         for(int i = 0; i < this.nodeList.getLength(); i++) {
-            Node ruleNode = this.nodeList.item(i);
-            System.out.printf("%s", ruleNode.getNodeName());
-            if (ruleNode instanceof Element) {
-                Element rule = (Element) ruleNode;
-                String id = rule.getAttribute("id");
-                String question = rule.getElementsByTagName("Question").item(0).getTextContent();
-                Answer answer = new Answer();
-                fillAnswer(answer, rule);
-                this.rulesRepo.addRule(new Question(id, question, answer));
+            Node factNode = this.nodeList.item(i);
+            System.out.printf("%s", factNode.getNodeName());
+            if (factNode instanceof Element) {
+                Element factElement = (Element) factNode;
+                String factName = factElement.getAttribute("id");
+                Element descriptionElement = (Element) factElement.getElementsByTagName("Description").item(0);
+                String description = descriptionElement.getAttribute("value");
+                NodeList evalsList = factElement.getElementsByTagName("Eval");
+                Fact fact = createFact(factName, description, evalsList);
+                this.factsRepo.addFact(fact);
             }
         }
+    }
+
+    private Fact createFact(String factName, String description, NodeList evalsList){
+        Fact fact = new Fact(factName, description);
+        for(int j=0; j < evalsList.getLength(); j++){
+            Node evalNode = evalsList.item(j);
+            if(evalNode instanceof  Element){
+                Element evalElement = (Element) evalNode;
+                String id = evalElement.getAttribute("id");
+                String value = evalElement.getTextContent();
+                fact.setFactValueById(id, Boolean.valueOf(value));
+            }
+        }
+        return fact;
     }
 
     public FactsRepo getFactsRepo() {
