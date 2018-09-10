@@ -4,6 +4,6 @@ import java.util.List;
 
 abstract class Value{
 
-    abstract List<String> getInputPattern();
-    abstract boolean getValue();
+    abstract public List<String> getInputPattern();
+    abstract public boolean getValue();
 }

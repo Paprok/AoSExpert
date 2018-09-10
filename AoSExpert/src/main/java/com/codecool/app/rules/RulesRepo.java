@@ -4,21 +4,26 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-import com.codecool.app.QuestionIterator;
+import com.codecool.app.iterators.QuestionIterator;
 
-public class RulesRepo{
-    private Map <String, Question> rules;  
+public class RulesRepo {
+    private Map<String, Question> rules;
     private Iterator<Question> questionIterator;
 
-    public RulesRepo(){
+    public RulesRepo() {
         this.rules = new HashMap<>();
-        this.questionIterator = new QuestionIterator();
     }
 
-    public void addRule(Question question){
+    public void addRule(Question question) {
         this.rules.put(question.getId(), question);
     }
 
-    public Iterator<Question> getIterator(){
+    public Map<String, Question> getRules() {
+        return this.rules;
+    }
+
+    public Iterator<Question> getIterator() {
+        this.questionIterator = new QuestionIterator(this.rules);
         return this.questionIterator;
     }
+}

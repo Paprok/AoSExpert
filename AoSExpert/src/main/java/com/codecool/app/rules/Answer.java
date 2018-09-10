@@ -1,22 +1,22 @@
 package com.codecool.app.rules;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-class Answer{
+public class Answer{
     private List<Value> valueList;
 
-    Answer(){
+    public Answer(){
     this.valueList = new ArrayList<>();    
     }
 
-    public boolean evaluateAnswerByInput(String input){
-        boolean evaluation = false;
+    public boolean evaluateAnswerByInput(String input) throws IOException {
         for(Value value: this.valueList){
             if(value.getInputPattern().contains(input))
-                evaluation = value.getValue();
+                return value.getValue();
         }
-        return evaluation;
+        throw new IOException();
     }
 
     public void addValue(Value value){

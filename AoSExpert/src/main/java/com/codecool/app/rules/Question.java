@@ -1,9 +1,13 @@
 package com.codecool.app.rules;
 
+import java.io.IOException;
+
+
 public class Question{
     private String id;
     private String question;
     private Answer answer;
+    private boolean evaluatedAnswer;
 
     public Question(String id, String question, Answer answer){
         this.id = id;
@@ -22,4 +26,12 @@ public class Question{
     public Answer getAnswer(){
         return this.answer;
     }
+
+    public boolean getEvaluatedAnswer(){
+        return this.evaluatedAnswer;
+    }
+
+    public void evaluateAnswer(String input) throws IOException {
+        this.evaluatedAnswer = this.answer.evaluateAnswerByInput(input);
+    } 
 }
