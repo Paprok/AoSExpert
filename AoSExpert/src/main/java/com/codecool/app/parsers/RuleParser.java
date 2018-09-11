@@ -28,29 +28,30 @@ public class RuleParser extends XMLParser{
     private void fillRulesRepo(){
         for(int i = 0; i < this.nodeList.getLength(); i++){
             Node ruleNode = this.nodeList.item(i);
-            System.out.printf("%s", ruleNode.getNodeName());
             if(ruleNode instanceof Element){
-                Element rule = (Element) ruleNode;
-                String id = rule.getAttribute("id");
-                String question = rule.getElementsByTagName("Question").item(0).getTextContent();
+                Element ruleElement = (Element) ruleNode;
+                String id = ruleElement.getAttribute("id");
+                Element questionElement = (Element) ruleElement.getElementsByTagName("Question").item(0);
+                String question = questionElement.getTextContent();
                 Answer answer = new Answer();
-                fillAnswer(answer, rule);
+                fillAnswer(answer, ruleElement);
                 this.rulesRepo.addRule(new Question(id, question, answer));
-                // System.out.printf("Selection value %s\n", selection.getAttribute("value"));
-                // System.out.printf("Answer: %s\n", singleValue.getAttribute("value"));
-                // Element selection1 = (Element) rule.getElementsByTagName("Selection").item(1);
-                // System.out.printf("Selection value %s\n", selection1.getAttribute("value"));
-                // Element singleValue1 = (Element) selection1.getElementsByTagName("SingleValue").item(0);
-                // System.out.printf("Answer: %s\n", singleValue1.getAttribute("value"));
             }
         }
     }
 
-    private void fillAnswer(Answer answer, Element rule){
-        for(int i = 0; i < rule.getElementsByTagName("Selection").getLength(); i++){
-            Element selection = (Element) rule.getElementsByTagName("Selection").item(i);
-            Element singleValue = (Element) selection.getElementsByTagName("SingleValue").item(0);
-            answer.addValue(new SingleValue(singleValue.getAttribute("value"), Boolean.getBoolean(selection.getAttribute("value"))));
+    private void fillAnswer(Answer answer, Element ruleElement){
+        NodeList selections = ruleElement.getElementsByTagName("Selection");
+        for(int i = 0; i < selections.getLength(); i++){
+            Node selectionNode = selections.item(i);
+            if (selectionNode instanceof Element) {
+                Element selection = (Element) selectionNode;
+                boolean value = Boolean.valueOf(selection.getAttribute("value").toLowerCase());
+                Element singleValueElement = (Element) selection.getElementsByTagName("SingleValue").item(0);
+                String inputPattern = singleValueElement.getAttribute("value");
+                SingleValue newSingleValue = new SingleValue(inputPattern, value);
+                answer.addValue(newSingleValue);
+            }
         }  
     }
 

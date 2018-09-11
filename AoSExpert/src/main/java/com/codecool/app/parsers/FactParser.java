@@ -22,7 +22,6 @@ public class FactParser extends XMLParser {
     private void fillFactRepo(){
         for(int i = 0; i < this.nodeList.getLength(); i++) {
             Node factNode = this.nodeList.item(i);
-            System.out.printf("%s", factNode.getNodeName());
             if (factNode instanceof Element) {
                 Element factElement = (Element) factNode;
                 String factName = factElement.getAttribute("id");

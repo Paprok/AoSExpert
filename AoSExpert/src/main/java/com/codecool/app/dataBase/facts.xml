@@ -46,7 +46,7 @@
     <Fact id="Orcs">
         <Description value="Ironjaws"/>
         <Eval id="aggro">true</Eval>
-        <Eval id="good">true</Eval>
+        <Eval id="good">false</Eval>
         <Eval id="monsters">false</Eval>
     </Fact>
 </Facts>

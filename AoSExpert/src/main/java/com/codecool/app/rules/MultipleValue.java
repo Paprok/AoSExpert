@@ -12,7 +12,7 @@ class MultipleValue extends Value{
     }
 
     @Override
-    public List<String> getInputPattern() {
+    public List<String> getInputPatterns() {
         return this.inputPattern;
     }
 

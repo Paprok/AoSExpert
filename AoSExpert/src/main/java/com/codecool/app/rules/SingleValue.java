@@ -5,17 +5,17 @@ import java.util.List;
 
 public class SingleValue extends Value{
     private boolean value;
-    private List<String> inputPattern;
+    private List<String> inputPatterns;
 
-    public SingleValue(String param, boolean value){
+    public SingleValue(String inputPattern, boolean value){
         this.value = value;
-        this.inputPattern = new ArrayList<>();
-        this.inputPattern.add(param);
+        this.inputPatterns = new ArrayList<>();
+        this.inputPatterns.add(inputPattern.toLowerCase());
     }
 
     @Override
-    public List<String> getInputPattern() {
-        return this.inputPattern;
+    public List<String> getInputPatterns() {
+        return this.inputPatterns;
     }
 
     @Override

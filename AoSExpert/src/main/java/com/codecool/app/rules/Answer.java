@@ -1,25 +1,28 @@
 package com.codecool.app.rules;
 
-import java.io.IOException;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 
-public class Answer{
+public class Answer {
     private List<Value> valueList;
 
-    public Answer(){
-    this.valueList = new ArrayList<>();    
+    public Answer() {
+        this.valueList = new ArrayList<>();
     }
 
-    public boolean evaluateAnswerByInput(String input) throws IOException {
-        for(Value value: this.valueList){
-            if(value.getInputPattern().contains(input))
-                return value.getValue();
+    public boolean evaluateAnswerByInput(String input) {
+        String formattedInput = input.toLowerCase().trim();
+        for (Value value : this.valueList) {
+            if (value.getInputPatterns().contains(formattedInput)) {
+                boolean evaluation = value.getValue();
+                return evaluation;
+            }
         }
-        throw new IOException();
+        throw new InputMismatchException();
     }
 
-    public void addValue(Value value){
+    public void addValue(Value value) {
         this.valueList.add(value);
     }
 }

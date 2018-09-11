@@ -26,4 +26,8 @@ public class RulesRepo {
         this.questionIterator = new QuestionIterator(this.rules);
         return this.questionIterator;
     }
+
+    public boolean getEvaluatedAnswerById(String id) {
+        return this.rules.get(id).getEvaluatedAnswer();
+    }
 }

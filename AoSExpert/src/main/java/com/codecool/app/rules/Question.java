@@ -1,6 +1,6 @@
 package com.codecool.app.rules;
 
-import java.io.IOException;
+import java.util.InputMismatchException;
 
 
 public class Question{
@@ -31,7 +31,7 @@ public class Question{
         return this.evaluatedAnswer;
     }
 
-    public void evaluateAnswer(String input) throws IOException {
+    public void evaluateAnswer(String input) throws InputMismatchException {
         this.evaluatedAnswer = this.answer.evaluateAnswerByInput(input);
-    } 
+    }
 }
